@@ -65,6 +65,6 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 3 Part 1: " ++ show ( ( length . atLeastOne . splitUp . lines) stringData)
-    putStrLn $ "Solution Day 3 Part 2: " ++ show ( bagsInsideSG . splitUp . lines $ stringData )
+    putStrLn $ "Solution Day 7 Part 1: " ++ show ( ( length . atLeastOne . splitUp . lines) stringData)
+    putStrLn $ "Solution Day 7 Part 2: " ++ show ( bagsInsideSG . splitUp . lines $ stringData )
 

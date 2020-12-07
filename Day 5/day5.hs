@@ -39,6 +39,6 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 3 Part 1: " ++ show ( (maximum . map getSeatID . map splitAtFirstRL . lines) stringData )
-    putStrLn $ "Solution Day 3 Part 2: " ++ show ( (findSeatID . map getSeatID . map splitAtFirstRL . lines) stringData )
+    putStrLn $ "Solution Day 5 Part 1: " ++ show ( (maximum . map getSeatID . map splitAtFirstRL . lines) stringData )
+    putStrLn $ "Solution Day 5 Part 2: " ++ show ( (findSeatID . map getSeatID . map splitAtFirstRL . lines) stringData )
 

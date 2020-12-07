@@ -39,6 +39,6 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 3 Part 1: " ++ show ( (sum . map length . map removeDuplicates . map concat . map lines . splitOnTwice '\n') stringData )
-    putStrLn $ "Solution Day 3 Part 2: " ++ show ( (sum . map length . map (foldr (intersect) ['a'..'z']) . map rmEmpty . map lines . splitOnTwice '\n') stringData )
+    putStrLn $ "Solution Day 6 Part 1: " ++ show ( (sum . map length . map removeDuplicates . map concat . map lines . splitOnTwice '\n') stringData )
+    putStrLn $ "Solution Day 6 Part 2: " ++ show ( (sum . map length . map (foldr (intersect) ['a'..'z']) . map rmEmpty . map lines . splitOnTwice '\n') stringData )
 

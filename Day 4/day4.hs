@@ -78,6 +78,6 @@ main = do
     args <- getArgs
     stringData <- readFile $ head args
     let passFields = (map words . splitOnTwice '\n') stringData
-    putStrLn $ "Solution Day 3 Part 1: " ++ show ( (length . filter (validPassportAndData requiredFields)) passFields )
-    putStrLn $ "Solution Day 3 Part 2: " ++ show ( (length . filter (validPassport requiredFields) . map (map (takeUntil ':'))) passFields )
+    putStrLn $ "Solution Day 4 Part 1: " ++ show ( (length . filter (validPassportAndData requiredFields)) passFields )
+    putStrLn $ "Solution Day 4 Part 2: " ++ show ( (length . filter (validPassport requiredFields) . map (map (takeUntil ':'))) passFields )
 
