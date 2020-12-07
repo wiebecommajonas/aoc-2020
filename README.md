@@ -1,5 +1,13 @@
 # Janky-as-hell solutions for the [Advent of Code](https://adventofcode.com/2020) event in Haskell
 
+To run the code type
+
+```[sh]
+λ> cd Day\ X/
+λ> runhaskell dayX.hs data.txt
+```
+into your commandline. ```X```needs to be replaced by the number of the day.
+
 ## Problems solved
 
 | Day | Problem 	| Part 1 | Part 2 |
