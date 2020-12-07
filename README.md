@@ -3,6 +3,8 @@
 To run the code type
 
 ```sh
+λ> git clone https://github.com/wiebecommajonas/aoc-2020.git
+λ> cd aoc-2020
 λ> cd Day\ X/
 λ> runhaskell dayX.hs data.txt
 ```
