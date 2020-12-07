@@ -2,7 +2,7 @@
 
 To run the code type
 
-```ghc,sh
+```sh
 λ> cd Day\ X/
 λ> runhaskell dayX.hs data.txt
 ```
