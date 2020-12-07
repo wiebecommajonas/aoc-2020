@@ -1,4 +1,4 @@
-# Janky-as-hell solutions for the Advent of Code event in Haskell
+# Janky-as-hell solutions for the [Advent of Code](https://adventofcode.com/2020) event in Haskell
 
 ## Problems solved
 
