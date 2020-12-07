@@ -37,7 +37,7 @@ into your commandline. ```X```needs to be replaced by the number of the day.
 
 ## Main loop
 
-The main loop is responsible for handling the argument ```data.txt``` given through the commandline. To use the function ```getArgs``` ("get commandline arguments") you will have to ```import System.Environment```
+The main loop is responsible for handling the argument ```data.txt``` given through the commandline and outputting the results. To use the function ```getArgs``` ("get commandline arguments") you will have to ```import System.Environment```
 
 ```haskell
 main :: IO()
