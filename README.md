@@ -3,5 +3,5 @@
 ## Problems solved
 
 | Problem 	| Part 1 | Part 2 |
-|		| :----: | :----: |
+|	:-------	| :----: | :----: |
 | Report Repair	| X	 | X	  |
