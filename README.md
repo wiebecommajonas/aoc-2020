@@ -10,6 +10,19 @@ To run the code type
 ```
 into your commandline. ```X```needs to be replaced by the number of the day.
 
+## Main loop
+
+The main loop is responsible for handling the argument ```data.txt``` given through the commandline. To use the function getArgs you will have to ```[haskell]import System.Environment```
+
+```haskell
+main :: IO()
+main = do
+    args <- getArgs
+    stringData <- readFile $ head args
+    putStrLn $ "Solution Day X Part 1: " ++ show (somefunction stringData)
+    putStrLn $ "Solution Day X Part 2: " ++ show (somefunction stringData)
+```
+
 ## Problems solved
 
 | Day | Problem 	| Part 1 | Part 2 |
