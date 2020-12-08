@@ -59,3 +59,4 @@ main = do
 | 5 | Binary Boarding | X | X |
 | 6 | Custom Customs | X | X |
 | 7 | Handy Haversacks | X | X |
+| 8 | Handheld Halting | X | X |
