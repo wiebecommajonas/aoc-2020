@@ -20,15 +20,6 @@ splitOnTwice delim str = help 1 delim str
                 nextLastChar = str !! c
                 element = take (c+1) str
 
-splitOnSubseq :: [a] -> [a] -> [[a]]
-splitOnSubseq delimiter sequence = help 0 delimiter sequence
-    where
-        help :: Int -> [a] -> [a] -> [[a]]
-        help count (d:ds) sequence
-                                | c == length sequence                              = [sequence]
-                                | thisIsDelimiter && nextIsDelimiter   = take (c-1) sequence : help 0 delimiter (drop (c+2) sequence)
-                                | otherwise                                         =
-
 rmEmpty :: [[a]] -> [[a]]
 rmEmpty [] = []
 rmEmpty (x:xs)
