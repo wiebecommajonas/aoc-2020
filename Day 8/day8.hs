@@ -30,16 +30,12 @@ execute' acc counter counterHistory cmds
     | (length . group . sort) counterHistory < length counterHistory = error "Program does not end"
     | otherwise = case (cmds !! counter) of
                     Acc x -> execute' (acc+x) (counter+1) (counter+1 : counterHistory) cmds
-                    Jmp x -> if isRight (executeJmp x)
+                    Jmp x -> if isRight (executeJmp x) || isLeft (executeNop)
                                 then execute' acc (counter+x) (counter+x : counterHistory) cmds
-                                else if isRight executeNop
-                                        then execute' acc (counter+1) (counter+1 : counterHistory) cmds
-                                        else execute' acc (counter+x) (counter+x : counterHistory) cmds
-                    Nop x -> if isRight executeNop
+                                else execute' acc (counter+1) (counter+1 : counterHistory) cmds
+                    Nop x -> if isRight executeNop || isLeft (executeJmp x)
                                 then execute' acc (counter+1) (counter+1 : counterHistory) cmds
-                                else if isRight (executeJmp x)
-                                        then execute' acc (counter+x) (counter+x : counterHistory) cmds
-                                        else execute' acc (counter+1) (counter+1 : counterHistory) cmds
+                                else execute' acc (counter+x) (counter+x : counterHistory) cmds
     where
         executeNop = execute acc (counter+1) (counter+1 : counterHistory) cmds
         executeJmp x = execute acc (counter+x) (counter+x : counterHistory) cmds
