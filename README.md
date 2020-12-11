@@ -61,3 +61,5 @@ main = do
 | 7 | Handy Haversacks | ☆ | ☆ |
 | 8 | Handheld Halting | ☆ | ☆ |
 | 9 | Encoding Error | ☆ | ☆ |
+| 10 | Adapter Array | ☆ | ☆ | <- would not try to run that again
+| 11 | Seating System | ☆ | ☆ |
