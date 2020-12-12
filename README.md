@@ -63,3 +63,4 @@ main = do
 | 9 | Encoding Error | ☆ | ☆ |
 | 10 | Adapter Array | ☆ | ☆ | <- would not try to run that again
 | 11 | Seating System | ☆ | ☆ |
+| 12 | Rain Risk | ☆ | ☆ |
