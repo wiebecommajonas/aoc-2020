@@ -39,7 +39,7 @@ result1 (earliest, busses) = (lowestTimestamp - earliest) * busWithLowestTimesta
         lowestTimestamp = minimum . map (\x -> fst x) $ busTimes
         busWithLowestTimestamp = snd . head . filter (\x -> fst x == lowestTimestamp) $ busTimes
 
-result2 :: [(Int,Int)] -> Int
+result2 :: [(Int,Int)] -> Int -- brute force method (will take several days)
 result2 bs = head [ timestamp | timestamp <- [1..], length [ 1 | (off,id) <- bs, not (timestamp == 0), (timestamp+off) `mod` id == 0, not (timestamp-off == 0)] == length bs]
     where
         step = minimum . map (\x -> snd x) $ bs
@@ -57,5 +57,5 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 12 Part 1: " ++ show ( (result1 . parse . lines) stringData ) -- 4808
-    putStrLn $ "Solution Day 12 Part 2: " ++ show ( (result3 . parse' . lines) stringData )  --
+    putStrLn $ "Solution Day 13 Part 1: " ++ show ( (result1 . parse . lines) stringData ) -- 4808
+    putStrLn $ "Solution Day 13 Part 2: " ++ show ( (result3 . parse' . lines) stringData )  -- 741745043105674
