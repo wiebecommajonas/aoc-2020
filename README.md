@@ -52,7 +52,7 @@ main = do
 
 | Day | Problem | Part 1 | Part 2 |
 | :-: |	:------- | :----: | :----: |
-| 1 | Report Repair | ☆ | ☆ |
+| [1](01/) | Report Repair | ☆ | ☆ |
 | 2 | Password Philosophy | ☆ | ☆ |
 | 3 | Toboggan Trajectory | ☆ | ☆ |
 | 4 | Passport Processing | ☆ | ☆ |
