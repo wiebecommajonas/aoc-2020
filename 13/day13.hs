@@ -57,5 +57,5 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 12 Part 1: " ++ show ( (result1 . parse . lines) stringData ) -- 4808
-    putStrLn $ "Solution Day 12 Part 2: " ++ show ( (result3 . parse' . lines) stringData )  --
+    putStrLn $ "Solution Day 13 Part 1: " ++ show ( (result1 . parse . lines) stringData ) -- 4808
+    putStrLn $ "Solution Day 13 Part 2: " ++ show ( (result3 . parse' . lines) stringData )  --
