@@ -53,15 +53,28 @@ main = do
 | Day | Problem | Part 1 | Part 2 |
 | :-: |	:------- | :----: | :----: |
 | [1](01/) | Report Repair | ☆ | ☆ |
-| 2 | Password Philosophy | ☆ | ☆ |
-| 3 | Toboggan Trajectory | ☆ | ☆ |
-| 4 | Passport Processing | ☆ | ☆ |
-| 5 | Binary Boarding | ☆ | ☆ |
-| 6 | Custom Customs | ☆ | ☆ |
-| 7 | Handy Haversacks | ☆ | ☆ |
-| 8 | Handheld Halting | ☆ | ☆ |
-| 9 | Encoding Error | ☆ | ☆ |
-| 10 | Adapter Array | ☆ | ☆ | <- would not try to run that again
-| 11 | Seating System | ☆ | ☆ |
-| 12 | Rain Risk | ☆ | ☆ |
-| 13 | Shuttle Search | ☆ | ☆ |
+| [2](02/) | Password Philosophy | ☆ | ☆ |
+| [3](03/) | Toboggan Trajectory | ☆ | ☆ |
+| [4](04/) | Passport Processing | ☆ | ☆ |
+| [5](05/) | Binary Boarding | ☆ | ☆ |
+| [6](06/) | Custom Customs | ☆ | ☆ |
+| [7](07/) | Handy Haversacks | ☆ | ☆ |
+| [8](08/) | Handheld Halting | ☆ | ☆ |
+| [9](09/) | Encoding Error | ☆ | ☆ |
+| [10](10/) | Adapter Array | ☆ | ☆ | <- would not try to run that again
+| [11](11/) | Seating System | ☆ | ☆ |
+| [12](12/) | Rain Risk | ☆ | ☆ |
+| [13](13/) | Shuttle Search | ☆ | ☆ |
+<!-- | [14](14/) |  |  |  |
+| [15](15/) |  |  |  |
+| [16](16/) |  |  |  |
+| [17](17/) |  |  |  |
+| [18](18/) |  |  |  |
+| [19](19/) |  |  |  |
+| [20](20/) |  |  |  |
+| [21](21/) |  |  |  |
+| [22](22/) |  |  |  |
+| [23](23/) |  |  |  |
+| [24](24/) |  |  |  |
+| [25](25/) |  |  |  |
+-->
