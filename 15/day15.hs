@@ -1,28 +1,31 @@
 import System.Environment   
 import Data.List
+import Data.Map (Map,lookup,fromList,insert)
 
-getLastIndexOf :: Int -> [Int] -> Int
-getLastIndexOf x xs
-	| null list = length xs
-	| otherwise = last list
+type Cache = Map Int Int
+
+cacheFrom :: [Int] -> Cache
+cacheFrom xs = Data.Map.fromList [(x,i) | (i,x) <- zip [1..] xs]
+
+turn :: (Cache, Int, Int) -> (Cache, Int, Int)
+turn (cache, lastIndex, lastNum) = (nextCache, nextIndex, nextNum)
 	where
-		list = init [a | (a,b) <- zip [1..] xs, b==x]
+		nextIndex = lastIndex+1
+		lastIndexOfNum = case Data.Map.lookup lastNum cache of
+									Just x -> x
+									Nothing -> lastIndex
+		nextNum = lastIndex - lastIndexOfNum
+		nextCache = Data.Map.insert lastNum lastIndex cache
 
-turn :: [Int] -> [Int]
-turn xs = xs++[indexOfLastTurn - lastIndexOfNum]
-	where
-		lastNum = last xs
-		indexOfLastTurn = length xs
-		lastIndexOfNum = getLastIndexOf lastNum xs
-
-turnWhile :: (Int -> Bool) -> [Int] -> [Int]
-turnWhile p xs
-	| p (length xs) = turnWhile p (turn xs)
-	| otherwise = xs
+turnWhile :: (Int -> Bool) -> (Cache, Int, Int) -> Int
+turnWhile p (cache, lastIndex, lastNum)
+	| p (lastIndex) = turnWhile p (turn (cache, lastIndex, lastNum))
+	| otherwise = lastNum
 
 main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 15 Part 1: " ++ show ( (last . turnWhile (<2020) . map (read :: String -> Int) . lines) stringData ) -- 14862056079561
-    putStrLn $ "Solution Day 15 Part 2: " ++ show ( (last . turnWhile (<30000000) . map (read :: String -> Int) . lines) stringData ) -- 3296185383161
+    let limit = args !! 1
+    putStrLn $ "Solution Day 15 Part 1: " ++ show ( ((\x -> turnWhile (<2020) (cacheFrom x, length x, last x)) . map (read :: String -> Int) . lines) stringData ) -- 1373
+    putStrLn $ "Solution Day 15 Part 2: " ++ show ( ((\x -> turnWhile (<30000000) (cacheFrom x, length x, last x)) . map (read :: String -> Int) . lines) stringData ) -- 112458

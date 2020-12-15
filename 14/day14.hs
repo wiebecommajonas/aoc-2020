@@ -103,5 +103,5 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 13 Part 1: " ++ show ( (addMems . runProgram . parse . lines) stringData ) -- 14862056079561
-    putStrLn $ "Solution Day 13 Part 2: " ++ show ( (addMems . runProgram2 . parse . lines) stringData ) -- 3296185383161
+    putStrLn $ "Solution Day 14 Part 1: " ++ show ( (addMems . runProgram . parse . lines) stringData ) -- 14862056079561
+    putStrLn $ "Solution Day 14 Part 2: " ++ show ( (addMems . runProgram2 . parse . lines) stringData ) -- 3296185383161
