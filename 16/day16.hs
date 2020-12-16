@@ -78,5 +78,5 @@ main :: IO()
 main = do
     args <- getArgs
     stringData <- readFile $ head args
-    putStrLn $ "Solution Day 16 Part 1: " ++ show ( ((\x -> tser (fst' x) (trd' x)) . parse) stringData ) -- 
-    putStrLn $ "Solution Day 16 Part 2: " ++ show ( ((\x -> multipliedDeps (fields (fst' x) (trd' x)) (snd' x)) . parse) stringData ) -- 
+    putStrLn $ "Solution Day 16 Part 1: " ++ show ( ((\x -> tser (fst' x) (trd' x)) . parse) stringData ) -- 27898
+    putStrLn $ "Solution Day 16 Part 2: " ++ show ( ((\x -> multipliedDeps (fields (fst' x) (trd' x)) (snd' x)) . parse) stringData ) -- 2766491048287
