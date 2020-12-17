@@ -16,12 +16,8 @@ possibleArrangements :: [Int] -> Int
 possibleArrangements [] = 0
 possibleArrangements [j] = 1
 possibleArrangements js = possibleArrangements (init js) 
--- + leadingTo (last js) js
 
--- leadingTo :: Int -> [Int] -> Int
--- leadingTo x js = (length . concat . map (map (filter (x==)))) [[jj | jj <- js, j-jj >= 1, j-jj <= 3] | j <- js]
-
-leading :: Int -> [Int] -> [Int]
+leading :: Int -> [Int] -> [[Int]]
 leading x js = map (filter (x==)) [[jj | jj <- js, j-jj >= 1, j-jj <= 3] | j <- js]
 
 getAllNextJs :: Int -> [Int] -> [Int]
@@ -53,7 +49,7 @@ main = do
     args <- getArgs
     stringData <- readFile $ head args
     putStrLn $ "Solution Day 10 Part 1: " ++ show ( (result1 . getDifferences 0 . map (read :: String -> Int) . lines) stringData ) -- 2070
-    let maxJ = maximum $ (map (read :: String -> Int) . lines) stringData
-    print $ maxJ
-    putStrLn $ "Solution Day 10 Part 2: " ++ show ( (leading 19 . sort . map (read :: String -> Int) . lines) stringData )  -- 219202240
+--    let maxJ = maximum $ (map (read :: String -> Int) . lines) stringData
+--    print $ maxJ
+--    putStrLn $ "Solution Day 10 Part 2: " ++ show ( (leading 19 . sort . map (read :: String -> Int) . lines) stringData )  -- 219202240
 
