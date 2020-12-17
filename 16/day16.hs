@@ -27,23 +27,24 @@ parse string = (rules, myTicket, nearbyTickets)
                 split line = splitOn ": " line
                 rule line = (\x -> (\y -> (y>=(head.head) x && y<=(last.head) x) || (y>=(head.last) x && y<=(last.last) x))) $ Data.List.map (Data.List.map (read::String->Int).splitOn "-") (splitOn " or " (last (split line)))
 
-validAll :: Rules -> Int -> Bool
-validAll rules value = foldr (||) False $ Data.Map.map (\x -> x value) rules
+atLeastOneRule :: Rules -> Int -> Bool
+atLeastOneRule rules value = foldr (||) False $ Data.Map.map (\x -> x value) rules
 
-validFor :: Rules -> Int -> [String]
-validFor rules value = keys $ Data.Map.filter (\x -> x value) rules
+matchingRules :: Rules -> Int -> [String]
+matchingRules rules value = keys $ Data.Map.filter (\x -> x value) rules
 
-validTicket :: Rules -> Ticket -> Bool
-validTicket rules ticket = foldr (&&) True $ Data.List.map (validAll rules) ticket
+validateTicket :: Rules -> Ticket -> Bool
+validateTicket rules ticket = foldr (&&) True $ Data.List.map (atLeastOneRule rules) ticket
 
-validFields :: Int -> Rules -> [Ticket] -> [String]
-validFields index rules tickets = foldr intersect (keys rules) $ Data.List.map (validFor rules) (Data.List.map (!!index) (validTickets rules tickets))
+-- get every possible field for a specified index
+possibleFields :: Int -> Rules -> [Ticket] -> [String]
+possibleFields index rules tickets = foldr intersect (keys rules) $ Data.List.map (matchingRules rules) (Data.List.map (!!index) validTickets)
+    where
+        validTickets = Data.List.filter (validateTicket rules) tickets
 
-validTickets :: Rules -> [Ticket] -> [Ticket]
-validTickets rules tickets = [ ticket | ticket <- tickets, validTicket rules ticket ]
-
+-- possibleFields for every index
 validFieldsAll :: Rules -> [Ticket] -> [[String]]
-validFieldsAll rules tickets = [ validFields i rules tickets | i <- [0..ticketLength-1] ]
+validFieldsAll rules tickets = [ possibleFields i rules tickets | i <- [0..ticketLength-1] ]
     where
         ticketLength = length (head tickets)
 
@@ -67,12 +68,12 @@ fields rules tickets = h empty vfa
                 removedPf = (Data.List.map (removeAll (elems newMap)) pf)
 
 tser :: Rules -> [Ticket] -> Int
-tser rules nearbyTickets = sum.concat $ [[ value | value <- ticket, not (validAll rules value)] | ticket <- nearbyTickets]
+tser rules nearbyTickets = sum.concat $ [[ value | value <- ticket, not (atLeastOneRule rules value)] | ticket <- nearbyTickets]
 
 multipliedDeps :: Map Int String -> Ticket -> Int
 multipliedDeps fields ticket = product [ ticket !! k | k <- keysWithDep]
     where
-        keysWithDep = keys (Data.Map.filter (\v (head.words) v == "departure") fields)
+        keysWithDep = keys (Data.Map.filter (\v -> (head.words) v == "departure") fields)
 
 main :: IO()
 main = do
